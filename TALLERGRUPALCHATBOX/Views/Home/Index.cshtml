@@ -1,43 +1,54 @@
-﻿@model string
+﻿@model TALLERGRUPALCHATBOX.Models.ChatbotViewModel
+
 @{
-    ViewData["Title"] = "CordovaBOT"; // Cambia "Cordova" por tu apellido
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="container mt-4">
+<!-- Encabezado personalizado -->
+<header style="background-color: #343a40; color: white; padding: 20px;">
+    <h1 class="text-center">CordovaBOT</h1>
+</header>
 
-    <!-- Tarjetas de los miembros -->
-    <div class="row mb-4">
-        @* Miembro 1 *@
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img src="~/images/miembro1.jpg" class="card-img-top" alt="Foto miembro 1">
-                <div class="card-body">
-                    <h5 class="card-title">Juan Pérez</h5>
-                    <p class="card-text"><strong>Correo:</strong> juan.perez@email.com</p>
-                    <p class="card-text"><strong>Intereses:</strong> IA, desarrollo web, videojuegos</p>
-                </div>
-            </div>
+<!-- Tarjetas de los miembros del grupo -->
+<div class="container mt-4 d-flex justify-content-center flex-wrap gap-4">
+    <div class="card shadow" style="width: 18rem;">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Foto de miembro">
+        <div class="card-body">
+            <h5 class="card-title">Alexander Cahueñas</h5>
+            <p class="card-text"><strong>Correo:</strong> alexanderky08@gmail.com</p>
+            <p class="card-text"><strong>Intereses:</strong> Videojuegos, GYM, Deportes</p>
         </div>
-
-        @* Miembro 2 *@
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img src="~/images/miembro2.jpg" class="card-img-top" alt="Foto miembro 2">
-                <div class="card-body">
-                    <h5 class="card-title">Ana Gómez</h5>
-                    <p class="card-text"><strong>Correo:</strong> ana.gomez@email.com</p>
-                    <p class="card-text"><strong>Intereses:</strong> Robótica, UX/UI, ciencia de datos</p>
-                </div>
-            </div>
-        </div>
-
-        @* Agrega más miembros según tu grupo *@
     </div>
 
-    <!-- Respuesta del chatbot -->
-    <div class="card p-3">
-        <h4>Respuesta del chatbot:</h4>
-        <pre>@Html.Raw(Model)</pre>
+    <div class="card shadow" style="width: 18rem;">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Foto de miembro">
+        <div class="card-body">
+            <h5 class="card-title">David Puga</h5>
+            <p class="card-text"><strong>Correo:</strong> maria.gomez@example.com</p>
+            <p class="card-text"><strong>Intereses:</strong> UX/UI, diseño web, música</p>
+        </div>
+    </div>
+    <div class="card shadow" style="width: 18rem;">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Foto de miembro">
+        <div class="card-body">
+            <h5 class="card-title">María Gómez</h5>
+            <p class="card-text"><strong>Correo:</strong> maria.gomez@example.com</p>
+            <p class="card-text"><strong>Intereses:</strong> UX/UI, diseño web, música</p>
+        </div>
+    </div>
+
+    <!-- Puedes copiar este bloque para más miembros -->
+</div>
+
+<!-- Respuesta del Chatbot -->
+<div class="container mt-5">
+    <h2 class="text-center mb-3">Respuesta del Chatbot</h2>
+    <div class="p-4 bg-light border rounded shadow-sm">
+        <pre style="white-space: pre-wrap;">@Model.ResponseText</pre>
     </div>
 </div>
+
+<!-- Pie de página personalizado -->
+<footer class="mt-5 p-3 text-center text-white" style="background-color: #343a40;">
+    <p>© 2025 CordovaBOT | Todos los derechos reservados.</p>
+</footer>
