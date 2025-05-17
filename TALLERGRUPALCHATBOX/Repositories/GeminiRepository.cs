@@ -17,7 +17,7 @@ namespace TALLERGRUPALCHATBOX.Repositories
             HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Post, url);
             GeminiRequest request = new GeminiRequest
             {
-                Contents = new List<Content> 
+                Contents = new List<Content>
                 {
                     new Content
                     {
@@ -29,8 +29,13 @@ namespace TALLERGRUPALCHATBOX.Repositories
                             }
                         }
                     }
-                }  
+                }
             };
+            message.Content = JsonContent.Create<GeminiRequest>(request);
+            var response = await _httpClient.SendAsync(message);
+            string answer = await response.Content.ReadAsStringAsync();
+
+            return answer;
         }
     }
 }
