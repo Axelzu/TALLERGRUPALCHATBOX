@@ -2,9 +2,8 @@
 
 namespace TALLERGRUPALCHATBOX.Models
 {
-    public class GeminiRequest
-    {
-        public class Root
+    
+        public class GeminiRequest
         {
             public List<Content> Contents { get; set; }
         }
@@ -18,5 +17,5 @@ namespace TALLERGRUPALCHATBOX.Models
         {
            public string Text { get; set; }
         }
-    }
+    
 }
