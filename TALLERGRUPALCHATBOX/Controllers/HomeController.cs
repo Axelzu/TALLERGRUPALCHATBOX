@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using TALLERGRUPALCHATBOX.Interfaces;
 using TALLERGRUPALCHATBOX.Models;
 using TALLERGRUPALCHATBOX.Repositories;
 
@@ -9,15 +10,18 @@ namespace TALLERGRUPALCHATBOX.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IChatBoxService _chatBoxService;
+        public HomeController(ILogger<HomeController> logger, IChatBoxService chatbotservice)
         {
             _logger = logger;
+            _chatBoxService = chatbotservice;
+            
         }
 
         public async Task<IActionResult> Index()
         {
            GeminiRepository repo = new GeminiRepository();
-            string answer = await repo.GetChatbotResponse("Dame un resumen de la pelicula titanic");
+            string answer = await _chatBoxService.GetChatbotResponse("Dame un resumen de la pelicula titanic");
 
             return View(answer);
         }
