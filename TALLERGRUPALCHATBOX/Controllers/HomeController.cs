@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TALLERGRUPALCHATBOX.Models;
+using TALLERGRUPALCHATBOX.Repositories;
 
 namespace TALLERGRUPALCHATBOX.Controllers
 {
@@ -13,9 +14,12 @@ namespace TALLERGRUPALCHATBOX.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+           GeminiRepository repo = new GeminiRepository();
+            string answer = await repo.GetChatbotResponse("Dame un resumen de la pelicula titanic");
+
+            return View(answer);
         }
 
         public IActionResult Privacy()
