@@ -1,8 +1,43 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model string
+@{
+    ViewData["Title"] = "CordovaBOT"; // Cambia "Cordova" por tu apellido
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+
+    <!-- Tarjetas de los miembros -->
+    <div class="row mb-4">
+        @* Miembro 1 *@
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="~/images/miembro1.jpg" class="card-img-top" alt="Foto miembro 1">
+                <div class="card-body">
+                    <h5 class="card-title">Juan Pérez</h5>
+                    <p class="card-text"><strong>Correo:</strong> juan.perez@email.com</p>
+                    <p class="card-text"><strong>Intereses:</strong> IA, desarrollo web, videojuegos</p>
+                </div>
+            </div>
+        </div>
+
+        @* Miembro 2 *@
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="~/images/miembro2.jpg" class="card-img-top" alt="Foto miembro 2">
+                <div class="card-body">
+                    <h5 class="card-title">Ana Gómez</h5>
+                    <p class="card-text"><strong>Correo:</strong> ana.gomez@email.com</p>
+                    <p class="card-text"><strong>Intereses:</strong> Robótica, UX/UI, ciencia de datos</p>
+                </div>
+            </div>
+        </div>
+
+        @* Agrega más miembros según tu grupo *@
+    </div>
+
+    <!-- Respuesta del chatbot -->
+    <div class="card p-3">
+        <h4>Respuesta del chatbot:</h4>
+        <pre>@Html.Raw(Model)</pre>
+    </div>
 </div>
