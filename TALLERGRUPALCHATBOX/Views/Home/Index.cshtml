@@ -6,49 +6,58 @@
 
 <!-- Encabezado personalizado -->
 <header style="background-color: #343a40; color: white; padding: 20px;">
-    <h1 class="text-center">CordovaBOT</h1>
+    <h1 class="text-center">C.P.C BOT</h1>
 </header>
 
-<!-- Tarjetas de los miembros del grupo -->
+<!-- Tarjetas de miembros -->
 <div class="container mt-4 d-flex justify-content-center flex-wrap gap-4">
     <div class="card shadow" style="width: 18rem;">
         <img src="https://via.placeholder.com/150" class="card-img-top" alt="Foto de miembro">
         <div class="card-body">
             <h5 class="card-title">Alexander Cahueñas</h5>
             <p class="card-text"><strong>Correo:</strong> alexanderky08@gmail.com</p>
-            <p class="card-text"><strong>Intereses:</strong> Videojuegos, GYM, Deportes</p>
+            <p class="card-text"><strong>Intereses:</strong> GYM, videojuegos, Deportes</p>
         </div>
     </div>
-
-    <div class="card shadow" style="width: 18rem;">
+    <<div class="card shadow" style="width: 18rem;">
         <img src="https://via.placeholder.com/150" class="card-img-top" alt="Foto de miembro">
         <div class="card-body">
             <h5 class="card-title">David Puga</h5>
-            <p class="card-text"><strong>Correo:</strong> maria.gomez@example.com</p>
-            <p class="card-text"><strong>Intereses:</strong> UX/UI, diseño web, música</p>
+            <p class="card-text"><strong>Correo:</strong> juan.perez@example.com</p>
+            <p class="card-text"><strong>Intereses:</strong> Comida, videojuegos, Creacion de pags web</p>
         </div>
     </div>
     <div class="card shadow" style="width: 18rem;">
         <img src="https://via.placeholder.com/150" class="card-img-top" alt="Foto de miembro">
         <div class="card-body">
-            <h5 class="card-title">María Gómez</h5>
-            <p class="card-text"><strong>Correo:</strong> maria.gomez@example.com</p>
-            <p class="card-text"><strong>Intereses:</strong> UX/UI, diseño web, música</p>
+            <h5 class="card-title">Mateo Cisneros</h5>
+            <p class="card-text"><strong>Correo:</strong> juan.perez@example.com</p>
+            <p class="card-text"><strong>Intereses:</strong> IA, videojuegos, robótica</p>
         </div>
     </div>
-
-    <!-- Puedes copiar este bloque para más miembros -->
 </div>
 
-<!-- Respuesta del Chatbot -->
+<!-- Formulario para preguntar al chatbot -->
 <div class="container mt-5">
-    <h2 class="text-center mb-3">Respuesta del Chatbot</h2>
-    <div class="p-4 bg-light border rounded shadow-sm">
-        <pre style="white-space: pre-wrap;">@Model.ResponseText</pre>
-    </div>
+    <h2 class="text-center mb-3">Pregúntale a C.P.C BOT</h2>
+
+    <form asp-controller="Home" asp-action="Index" method="get">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="prompt" placeholder="Escribe tu pregunta aquí..." />
+            <button class="btn btn-primary" type="submit">Preguntar</button>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model?.ResponseText))
+    {
+        <div class="p-4 bg-light border rounded shadow-sm">
+            <h5>Respuesta:</h5>
+            <pre style="white-space: pre-wrap;">@Model.ResponseText</pre>
+        </div>
+    }
 </div>
 
-<!-- Pie de página personalizado -->
+<!-- Pie de página -->
 <footer class="mt-5 p-3 text-center text-white" style="background-color: #343a40;">
-    <p>© 2025 CordovaBOT | Todos los derechos reservados.</p>
+    <p>© TALLER GRUPAL CHATBOX.</p>
 </footer>
