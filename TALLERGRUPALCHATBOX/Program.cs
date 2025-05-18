@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using TALLERGRUPALCHATBOX.Data;
 using TALLERGRUPALCHATBOX.Interfaces;
 using TALLERGRUPALCHATBOX.Repositories;
 
@@ -7,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IChatBoxService, OpenAIRepository>();
 builder.Services.AddSingleton<IChatBoxService, GeminiRepository>();
-
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
